@@ -1,0 +1,65 @@
+{
+  "site": "Hamilton Quarry",
+  "asOfDate": "2026-02-18T06:00:00Z",
+  "products": [
+    {
+      "name": "Crusher Run",
+      "onHand": 3100,
+      "available": 2300,
+      "unit": "tonnes",
+      "daysOfSupply": 9,
+      "turnoverRate": 3.5,
+      "status": "LOW",
+      "reorderPoint": 2500,
+      "productionRate": 350
+    },
+    {
+      "name": "Stone",
+      "onHand": 15800,
+      "available": 12600,
+      "unit": "tonnes",
+      "daysOfSupply": 25,
+      "turnoverRate": 4.5,
+      "status": "OK",
+      "reorderPoint": 8000,
+      "productionRate": 500
+    },
+    {
+      "name": "Rip Rap",
+      "onHand": 4850,
+      "available": 2850,
+      "unit": "tonnes",
+      "daysOfSupply": 21,
+      "turnoverRate": 2.8,
+      "status": "OK",
+      "reorderPoint": 2000,
+      "productionRate": 200
+    },
+    {
+      "name": "Limestone",
+      "onHand": 950,
+      "available": 550,
+      "unit": "tonnes",
+      "daysOfSupply": 3,
+      "turnoverRate": 3.2,
+      "status": "CRITICAL",
+      "reorderPoint": 1500,
+      "productionRate": 280
+    },
+    {
+      "name": "Granular A",
+      "onHand": 7200,
+      "available": 6100,
+      "unit": "tonnes",
+      "daysOfSupply": 19,
+      "turnoverRate": 3.9,
+      "status": "OK",
+      "reorderPoint": 4000,
+      "productionRate": 320
+    }
+  ],
+  "totalTonnage": 84520,
+  "weekOverWeekChange": -3.1,
+  "lowStockAlerts": 6,
+  "criticalAlerts": 3
+}

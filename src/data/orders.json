@@ -1,0 +1,52 @@
+{
+  "site": "Hamilton Quarry",
+  "asOfDate": "2026-02-18T06:00:00Z",
+  "summary": {
+    "openOrders": 28,
+    "weekOverWeekChange": 12.3,
+    "todayDeliveries": 42,
+    "todayTonnage": 1640
+  },
+  "todaySchedule": [
+    {
+      "customer": "Regional Paving",
+      "product": "Granular A",
+      "quantity": 400,
+      "time": "08:00",
+      "type": "pickup",
+      "status": "ready"
+    },
+    {
+      "customer": "Mueller Construction",
+      "product": "Limestone",
+      "quantity": 200,
+      "time": "10:00",
+      "type": "delivery",
+      "status": "monitor"
+    },
+    {
+      "customer": "City of Burlington",
+      "product": "Crusher Run",
+      "quantity": 300,
+      "time": "13:00",
+      "type": "delivery",
+      "status": "ready"
+    }
+  ],
+  "commitments": [
+    {
+      "product": "Limestone",
+      "committed": 400,
+      "available": 550,
+      "dueBy": "2026-02-21",
+      "risk": "high"
+    },
+    {
+      "product": "HL3",
+      "committed": 1200,
+      "available": 980,
+      "dueBy": "2026-02-28",
+      "risk": "oversold"
+    }
+  ]
+}

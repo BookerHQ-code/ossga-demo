@@ -1,0 +1,98 @@
+{
+  "location": "Hamilton, Ontario",
+  "current": {
+    "condition": "Clear",
+    "temperature": -2,
+    "feelsLike": -7,
+    "windSpeed": 15,
+    "windDirection": "NW",
+    "humidity": 45
+  },
+  "operationalGuidance": "Favorable conditions today and tomorrow for blast operations and outdoor work. Recommend completing weather-sensitive activities before Thursday precipitation.",
+  "forecast": [
+    {
+      "date": "2026-02-18",
+      "day": "Tuesday",
+      "condition": "Clear",
+      "icon": "sun",
+      "tempHigh": -1,
+      "tempLow": -8,
+      "windSpeed": 15,
+      "windDirection": "NW",
+      "precipitation": 0,
+      "operationalSuitability": "good"
+    },
+    {
+      "date": "2026-02-19",
+      "day": "Wednesday",
+      "condition": "Partly Cloudy",
+      "icon": "cloud-sun",
+      "tempHigh": 4,
+      "tempLow": -2,
+      "windSpeed": 10,
+      "windDirection": "W",
+      "precipitation": 0,
+      "operationalSuitability": "good"
+    },
+    {
+      "date": "2026-02-20",
+      "day": "Thursday",
+      "condition": "Rain",
+      "icon": "cloud-rain",
+      "tempHigh": 6,
+      "tempLow": 2,
+      "windSpeed": 8,
+      "windDirection": "SW",
+      "precipitation": 15,
+      "operationalSuitability": "limited_pm"
+    },
+    {
+      "date": "2026-02-21",
+      "day": "Friday",
+      "condition": "Rain",
+      "icon": "cloud-rain",
+      "tempHigh": 5,
+      "tempLow": 1,
+      "windSpeed": 20,
+      "windDirection": "S",
+      "precipitation": 25,
+      "operationalSuitability": "poor"
+    },
+    {
+      "date": "2026-02-22",
+      "day": "Saturday",
+      "condition": "Clearing",
+      "icon": "cloud-sun",
+      "tempHigh": 3,
+      "tempLow": -1,
+      "windSpeed": 25,
+      "windDirection": "W",
+      "precipitation": 2,
+      "operationalSuitability": "limited"
+    },
+    {
+      "date": "2026-02-23",
+      "day": "Sunday",
+      "condition": "Clear",
+      "icon": "sun",
+      "tempHigh": 2,
+      "tempLow": -4,
+      "windSpeed": 12,
+      "windDirection": "NW",
+      "precipitation": 0,
+      "operationalSuitability": "good"
+    },
+    {
+      "date": "2026-02-24",
+      "day": "Monday",
+      "condition": "Clear",
+      "icon": "sun",
+      "tempHigh": 4,
+      "tempLow": -3,
+      "windSpeed": 10,
+      "windDirection": "W",
+      "precipitation": 0,
+      "operationalSuitability": "good"
+    }
+  ]
+}

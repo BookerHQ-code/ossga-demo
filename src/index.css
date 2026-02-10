@@ -41,14 +41,6 @@
   .card {
     @apply bg-white rounded-xl shadow-lg border border-gray-100 p-6;
   }
-
-  .nav-link {
-    @apply text-gray-600 hover:text-blue-600 font-medium transition-colors duration-200;
-  }
-
-  .nav-link-active {
-    @apply text-blue-600 font-semibold;
-  }
 }
 
 @layer utilities {
@@ -58,5 +50,39 @@
 
   .animate-slide-up {
     animation: slideUp 0.3s ease-out;
+  }
+
+  .animate-blink {
+    animation: blink 0.8s step-end infinite;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
   }
 }

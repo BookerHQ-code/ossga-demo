@@ -1,80 +1,126 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
-import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
+import { Tab } from '@headlessui/react';
+import {
+  ClipboardDocumentListIcon,
+  ChatBubbleLeftRightIcon,
+  ChartBarIcon,
+  ChevronDownIcon,
+} from '@heroicons/react/24/outline';
+import clsx from 'clsx';
+import DailyBriefing from '../briefing/DailyBriefing';
+import AskAnything from '../chat/AskAnything';
+import WeeklyStrategy from '../strategy/WeeklyStrategy';
 
-const Layout = ({ children }) => {
-  const [sidebarOpen, setSidebarOpen] = useState(false);
+const sites = ['Hamilton Quarry', 'Burlington Quarry', 'Uhthoff Quarry'];
 
-  const navigation = [
-    { name: 'Home', href: '/' },
-    { name: 'About', href: '/about' },
-  ];
+const tabs = [
+  { name: 'Daily Briefing', icon: ClipboardDocumentListIcon },
+  { name: 'Ask Anything', icon: ChatBubbleLeftRightIcon },
+  { name: 'Weekly Strategy', icon: ChartBarIcon },
+];
+
+const Layout = () => {
+  const [selectedSite, setSelectedSite] = useState(sites[0]);
+  const [siteMenuOpen, setSiteMenuOpen] = useState(false);
 
   return (
-    <div className='min-h-screen bg-gray-50'>
-      {/* Navigation */}
-      <nav className='bg-white shadow-sm border-b border-gray-200'>
-        <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-          <div className='flex justify-between items-center h-16'>
-            <div className='flex items-center'>
-              <div className='flex-shrink-0'>
-                <h1 className='text-xl font-bold text-gray-900'>App</h1>
-              </div>
-              <div className='hidden md:block ml-10'>
-                <div className='flex space-x-8'>
-                  {navigation.map((item) => (
-                    <NavLink
-                      key={item.name}
-                      to={item.href}
-                      className={({ isActive }) => (isActive ? 'nav-link-active' : 'nav-link')}
-                    >
-                      {item.name}
-                    </NavLink>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            <div className='md:hidden'>
-              <button
-                onClick={() => setSidebarOpen(!sidebarOpen)}
-                className='p-2 rounded-md text-gray-600 hover:bg-gray-100'
-              >
-                {sidebarOpen ? (
-                  <XMarkIcon className='h-6 w-6' />
-                ) : (
-                  <Bars3Icon className='h-6 w-6' />
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16">
+            <h1 className="text-lg sm:text-xl font-bold text-gray-900 tracking-wide uppercase">
+              Aggregate Operations Advisor
+            </h1>
+            <div className="flex items-center gap-4">
+              {/* Site selector */}
+              <div className="relative">
+                <button
+                  onClick={() => setSiteMenuOpen(!siteMenuOpen)}
+                  className="flex items-center gap-1 text-sm font-medium text-gray-700 hover:text-gray-900 bg-gray-50 px-3 py-2 rounded-lg border border-gray-200"
+                >
+                  {selectedSite}
+                  <ChevronDownIcon className="h-4 w-4" />
+                </button>
+                {siteMenuOpen && (
+                  <div className="absolute right-0 mt-1 w-48 bg-white rounded-lg shadow-lg border border-gray-200 z-50">
+                    {sites.map((site) => (
+                      <button
+                        key={site}
+                        onClick={() => {
+                          setSelectedSite(site);
+                          setSiteMenuOpen(false);
+                        }}
+                        className={clsx(
+                          'block w-full text-left px-4 py-2 text-sm hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg',
+                          site === selectedSite ? 'font-semibold text-blue-600' : 'text-gray-700'
+                        )}
+                      >
+                        {site}
+                      </button>
+                    ))}
+                  </div>
                 )}
-              </button>
+              </div>
+              {/* Date */}
+              <span className="hidden sm:inline text-sm text-gray-500">
+                Tuesday, February 18, 2026
+              </span>
             </div>
           </div>
-
-          {/* Mobile menu */}
-          {sidebarOpen && (
-            <div className='md:hidden py-4 border-t border-gray-200'>
-              <div className='space-y-2'>
-                {navigation.map((item) => (
-                  <NavLink
-                    key={item.name}
-                    to={item.href}
-                    className={({ isActive }) =>
-                      `block px-3 py-2 rounded-md ${isActive ? 'nav-link-active' : 'nav-link'}`
-                    }
-                    onClick={() => setSidebarOpen(false)}
-                  >
-                    {item.name}
-                  </NavLink>
-                ))}
-              </div>
-            </div>
-          )}
         </div>
-      </nav>
+      </header>
 
-      {/* Main content */}
-      <main className='max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8'>
-        <div className='animate-fade-in'>{children}</div>
-      </main>
+      {/* Tabs + Content */}
+      <Tab.Group>
+        <div className="bg-white border-b border-gray-200">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <Tab.List className="flex space-x-1">
+              {tabs.map((tab) => (
+                <Tab
+                  key={tab.name}
+                  className={({ selected }) =>
+                    clsx(
+                      'flex items-center gap-2 px-4 py-3 text-sm font-medium border-b-2 transition-colors focus:outline-none',
+                      selected
+                        ? 'border-blue-600 text-blue-600'
+                        : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                    )
+                  }
+                >
+                  <tab.icon className="h-5 w-5" />
+                  <span className="hidden sm:inline">{tab.name}</span>
+                </Tab>
+              ))}
+            </Tab.List>
+          </div>
+        </div>
+
+        <main className="flex-1">
+          <div className="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
+            <Tab.Panels>
+              <Tab.Panel className="animate-fade-in">
+                <DailyBriefing />
+              </Tab.Panel>
+              <Tab.Panel className="animate-fade-in">
+                <AskAnything />
+              </Tab.Panel>
+              <Tab.Panel className="animate-fade-in">
+                <WeeklyStrategy />
+              </Tab.Panel>
+            </Tab.Panels>
+          </div>
+        </main>
+      </Tab.Group>
+
+      {/* Footer */}
+      <footer className="bg-white border-t border-gray-200 py-4 mt-auto">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-center text-sm text-gray-400">
+            Generated by Aggregate Operations Advisor | BookerHQ Inc.
+          </p>
+        </div>
+      </footer>
     </div>
   );
 };

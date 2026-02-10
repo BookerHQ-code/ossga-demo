@@ -1,0 +1,67 @@
+{
+  "site": "Hamilton Quarry",
+  "asOfDate": "2026-02-18T06:00:00Z",
+  "instruments": [
+    {
+      "type": "PTTW",
+      "name": "Hamilton PTTW",
+      "number": "6211-DB6J8W",
+      "dateIssued": "2025-03-19",
+      "expiryDate": "2030-03-31",
+      "reportingDeadline": "June 1, every two years",
+      "nextReportDue": "2027-06-01",
+      "completionPercent": 87,
+      "status": "OK"
+    },
+    {
+      "type": "ECA",
+      "name": "Hamilton ECA",
+      "number": "8197-DM2QJ8",
+      "dateIssued": "2025-10-02",
+      "expiryDate": null,
+      "reportingDeadline": "June 1, each year",
+      "nextReportDue": "2026-06-01",
+      "completionPercent": 75,
+      "status": "OK",
+      "pendingTasks": [
+        {
+          "task": "Monthly effluent sample",
+          "dueBy": "2026-02-28",
+          "status": "not_scheduled"
+        }
+      ]
+    },
+    {
+      "type": "CAR",
+      "name": "Burlington CAR",
+      "number": "ARA-2024-BUR",
+      "dateIssued": "2024-09-01",
+      "expiryDate": null,
+      "reportingDeadline": "September 30, each year",
+      "nextReportDue": "2026-09-30",
+      "completionPercent": 45,
+      "status": "OK"
+    },
+    {
+      "type": "PTTW",
+      "name": "Uhthoff PTTW",
+      "number": "4892-KM3P2L",
+      "dateIssued": "2023-06-15",
+      "expiryDate": "2028-06-30",
+      "reportingDeadline": "March 31, each year",
+      "nextReportDue": "2026-03-31",
+      "completionPercent": 72,
+      "status": "SOON"
+    }
+  ],
+  "recentBlast": {
+    "date": "2026-02-14",
+    "location": "Hamilton Quarry",
+    "overpressure": 115,
+    "overpressureLimit": 128,
+    "vibration": 1.6,
+    "vibrationLimit": 12.5,
+    "status": "compliant"
+  },
+  "violations": 0
+}
