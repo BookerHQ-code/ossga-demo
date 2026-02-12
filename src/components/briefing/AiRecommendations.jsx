@@ -2,7 +2,6 @@ import { Disclosure } from '@headlessui/react';
 import { LightBulbIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import clsx from 'clsx';
 import { recommendations } from '../../data/briefing';
-import SectionHeader from '../ui/SectionHeader';
 
 const priorityColors = {
   HIGH: 'bg-red-100 text-red-800',
@@ -12,51 +11,55 @@ const priorityColors = {
 
 const AiRecommendations = () => {
   return (
-    <div>
-      <SectionHeader
-        icon={LightBulbIcon}
-        title="AI Recommendations"
-        subtitle="Prioritized action items with reasoning"
-      />
-      <div className="space-y-3">
-        {recommendations.map((rec, index) => (
-          <Disclosure key={rec.id} defaultOpen={index === 0}>
+    <div className="bg-white rounded-lg border border-gray-200 overflow-hidden">
+      {/* Header */}
+      <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
+        <LightBulbIcon className="h-4 w-4 text-blue-600" />
+        <h2 className="text-sm font-semibold text-gray-900 uppercase tracking-wide">
+          AI Recommendations
+        </h2>
+        <span className="text-xs text-gray-400">Prioritized action items</span>
+      </div>
+
+      {/* Items */}
+      <div className="divide-y divide-gray-100">
+        {recommendations.map((rec) => (
+          <Disclosure key={rec.id} >
             {({ open }) => (
-              <div className="bg-white rounded-lg shadow-sm border border-gray-100">
-                <Disclosure.Button className="w-full text-left p-5 flex items-start gap-3 focus:outline-none">
-                  <span className="mt-0.5 text-lg font-bold text-gray-400">{index + 1}.</span>
+              <div>
+                <Disclosure.Button className="w-full text-left px-4 py-3 flex items-start gap-3 hover:bg-gray-50 transition-colors focus:outline-none">
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 flex-wrap">
                       <span
                         className={clsx(
-                          'inline-flex px-2 py-0.5 rounded text-xs font-bold uppercase',
+                          'inline-flex px-1.5 py-0.5 rounded text-xs font-bold uppercase',
                           priorityColors[rec.priority]
                         )}
                       >
                         {rec.priority}
                       </span>
-                      <span className="font-semibold text-gray-900 text-lg">{rec.title}</span>
+                      <span className="text-sm font-medium text-gray-900">{rec.title}</span>
                     </div>
-                    <p className="mt-1 text-gray-600">{rec.action}</p>
+                    <p className="mt-0.5 text-sm text-gray-500">{rec.action}</p>
                   </div>
                   <ChevronUpIcon
                     className={clsx(
-                      'h-5 w-5 text-gray-400 flex-shrink-0 transition-transform',
+                      'h-4 w-4 text-gray-400 flex-shrink-0 transition-transform mt-0.5',
                       !open && 'rotate-180'
                     )}
                   />
                 </Disclosure.Button>
-                <Disclosure.Panel className="px-5 pb-5 pt-0 ml-9">
-                  <div className="border-t border-gray-100 pt-4 space-y-3">
+                <Disclosure.Panel className="px-4 pb-3 pt-0">
+                  <div className="border-t border-gray-100 pt-2.5 space-y-2 text-sm">
                     <div>
-                      <p className="text-sm font-medium text-gray-500 uppercase">Reasoning</p>
-                      <p className="mt-1 text-gray-700">{rec.reasoning}</p>
+                      <p className="text-xs font-medium text-gray-400 uppercase">Reasoning</p>
+                      <p className="mt-0.5 text-gray-600">{rec.reasoning}</p>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-gray-500 uppercase">Impact if Ignored</p>
-                      <p className="mt-1 text-gray-700">{rec.impact}</p>
+                      <p className="text-xs font-medium text-gray-400 uppercase">Impact if Ignored</p>
+                      <p className="mt-0.5 text-gray-600">{rec.impact}</p>
                     </div>
-                    <p className="text-sm text-gray-500">Suggested Owner: {rec.owner}</p>
+                    <p className="text-xs text-gray-400">Owner: {rec.owner}</p>
                   </div>
                 </Disclosure.Panel>
               </div>

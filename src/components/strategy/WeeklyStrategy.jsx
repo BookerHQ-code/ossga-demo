@@ -7,7 +7,7 @@ import { strategy } from '../../data/strategy';
 
 const WeeklyStrategy = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-5">
       <div>
         <h1 className="text-2xl font-bold text-gray-900">Weekly Strategy Brief</h1>
         <p className="text-sm text-gray-500">
@@ -16,9 +16,9 @@ const WeeklyStrategy = () => {
       </div>
       <ExecutiveSummary />
       <KeyMetrics />
-      <CrossFunctionalInsights />
-      <OpportunitiesAndRisks />
       <RecommendedPriorities />
+      <OpportunitiesAndRisks />
+      <CrossFunctionalInsights />
     </div>
   );
 };

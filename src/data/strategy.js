@@ -5,6 +5,12 @@ export const strategy = {
   executiveSummary:
     'This week presents a production opportunity with favorable early-week weather, offset by a developing limestone supply risk that requires immediate attention. Sales momentum continues strong (+12% WoW) but inventory turnover rates suggest production is not keeping pace with demand. Compliance position remains solid with no violations, though three deadlines fall within the next 45 days.',
 
+  takeaways: [
+    'Limestone at 3-day supply — transfer and production rebalance needed immediately',
+    'Sales outpacing production by 16pts — inventory will hit critical in 3 weeks',
+    'Front-load production Mon–Wed before Thursday rain impacts operations',
+  ],
+
   metrics: [
     {
       id: 'production',
@@ -151,15 +157,15 @@ export const strategy = {
       label: 'Hamilton ECA sample Wednesday',
       detail: 'Schedule grab sample for optimal conditions before Thursday rain',
     },
-    {
-      id: 4,
-      label: 'Crusher A service Tuesday',
-      detail: 'Planned downtime during afternoon shift, 9-day Crusher Run buffer',
-    },
-    {
-      id: 5,
-      label: 'Review Q2 pricing Friday',
-      detail: 'Burlington capacity utilization analysis, market pricing review',
-    },
+    // {
+    //   id: 4,
+    //   label: 'Crusher A service Tuesday',
+    //   detail: 'Planned downtime during afternoon shift, 9-day Crusher Run buffer',
+    // },
+    // {
+    //   id: 5,
+    //   label: 'Review Q2 pricing Friday',
+    //   detail: 'Burlington capacity utilization analysis, market pricing review',
+    // },
   ],
 };

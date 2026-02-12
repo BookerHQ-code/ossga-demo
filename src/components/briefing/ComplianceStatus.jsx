@@ -9,25 +9,27 @@ const statusMap = {
   SOON: 'warning',
 };
 
-const ComplianceStatus = () => {
+const ComplianceStatus = ({ inline }) => {
   const { instruments, recentBlast, violations } = compliance;
 
   return (
     <div>
-      <SectionHeader
-        icon={ClipboardDocumentCheckIcon}
-        title="Compliance Status"
-        subtitle={`${violations} violations detected`}
-      />
+      {!inline && (
+        <SectionHeader
+          icon={ClipboardDocumentCheckIcon}
+          title="Compliance Status"
+          subtitle={`${violations} violations detected`}
+        />
+      )}
 
-      <div className="bg-white rounded-lg shadow-sm border border-gray-100">
+      <div className={inline ? '' : 'bg-white rounded-lg border border-gray-200'}>
         <div className="divide-y divide-gray-100">
           {instruments.map((inst) => (
-            <div key={inst.number} className="p-4">
-              <div className="flex items-center justify-between flex-wrap gap-2 mb-2">
+            <div key={inst.number} className="px-4 py-3">
+              <div className="flex items-center justify-between flex-wrap gap-2 mb-1.5">
                 <div>
-                  <p className="font-medium text-gray-900">{inst.name}</p>
-                  <p className="text-sm text-gray-500">
+                  <p className="text-sm font-medium text-gray-900">{inst.name}</p>
+                  <p className="text-xs text-gray-500">
                     {inst.type} &middot; Next due: {inst.nextReportDue}
                   </p>
                 </div>
@@ -41,7 +43,7 @@ const ComplianceStatus = () => {
               />
               {inst.pendingTasks &&
                 inst.pendingTasks.map((task, i) => (
-                  <p key={i} className="mt-2 text-sm text-amber-700 bg-amber-50 rounded px-3 py-1.5">
+                  <p key={i} className="mt-1.5 text-xs text-amber-700 bg-amber-50 rounded px-2.5 py-1">
                     {task.task} &mdash; due {task.dueBy} ({task.status.replace('_', ' ')})
                   </p>
                 ))}
@@ -50,10 +52,10 @@ const ComplianceStatus = () => {
         </div>
 
         {/* Recent blast */}
-        <div className="border-t border-gray-100 p-4 bg-gray-50 rounded-b-lg">
-          <p className="text-sm text-gray-600">
+        <div className="border-t border-gray-100 px-4 py-2.5 bg-gray-50">
+          <p className="text-xs text-gray-600">
             <span className="font-medium">Last blast ({recentBlast.location}):</span>{' '}
-            {recentBlast.date} &mdash; All parameters within limits. Overpressure:{' '}
+            {recentBlast.date} &mdash; All within limits. Overpressure:{' '}
             {recentBlast.overpressure}/{recentBlast.overpressureLimit} dBL &middot; Vibration:{' '}
             {recentBlast.vibration}/{recentBlast.vibrationLimit} mm/s
           </p>
