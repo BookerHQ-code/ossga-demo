@@ -1,13 +1,16 @@
 import { useState } from 'react';
 import AnalyticsFilters from './AnalyticsFilters';
+import AnalyticsViewToggle from './AnalyticsViewToggle';
 import KpiSummaryRow from './KpiSummaryRow';
 import ProductionCharts from './ProductionCharts';
 import SalesCharts from './SalesCharts';
 import InventoryCharts from './InventoryCharts';
 import ComplianceCharts from './ComplianceCharts';
+import AiAnalytics from './AiAnalytics';
 
 const AnalyticsDashboard = () => {
   const [filter, setFilter] = useState('all');
+  const [view, setView] = useState('dashboard');
 
   const show = (key) => filter === 'all' || filter === key;
 
@@ -21,17 +24,29 @@ const AnalyticsDashboard = () => {
             8-Week Trend &middot; As of February 18, 2026
           </p>
         </div>
-        <AnalyticsFilters active={filter} onChange={setFilter} />
+        <div className="flex items-center gap-3">
+          <AnalyticsViewToggle active={view} onChange={setView} />
+          {view === 'dashboard' && (
+            <AnalyticsFilters active={filter} onChange={setFilter} />
+          )}
+        </div>
       </div>
 
       {/* KPI summary — always visible */}
       <KpiSummaryRow />
 
-      {/* Chart sections */}
-      {show('production') && <ProductionCharts />}
-      {show('sales') && <SalesCharts />}
-      {show('inventory') && <InventoryCharts />}
-      {show('compliance') && <ComplianceCharts />}
+      {/* Dashboard view: chart sections */}
+      {view === 'dashboard' && (
+        <>
+          {show('production') && <ProductionCharts />}
+          {show('sales') && <SalesCharts />}
+          {show('inventory') && <InventoryCharts />}
+          {show('compliance') && <ComplianceCharts />}
+        </>
+      )}
+
+      {/* AI Insights view */}
+      {view === 'ai-insights' && <AiAnalytics />}
     </div>
   );
 };

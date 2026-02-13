@@ -35,11 +35,10 @@ const DailyBriefing = () => {
       </div>
 
       {/* Priority Alerts + Detail panel side by side */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start" style={{ maxHeight: '36rem' }}>
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 items-start">
         {/* Left column — Priority Alerts */}
         <div
-          className="bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden"
-          style={{ maxHeight: '36rem' }}
+          className="bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden lg:max-h-[36rem]"
         >
           <div className="flex items-center gap-2 px-4 py-3 border-b border-gray-100">
             <ExclamationTriangleIcon className="h-4 w-4 text-amber-500" />
@@ -55,8 +54,7 @@ const DailyBriefing = () => {
 
         {/* Right column — Detail panel */}
         <div
-          className="bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden"
-          style={{ maxHeight: '36rem' }}
+          className="bg-white rounded-lg border border-gray-200 flex flex-col overflow-hidden max-h-[24rem] lg:max-h-[36rem]"
         >
           <div className="flex gap-1 px-4 py-3 border-b border-gray-100">
             {detailTabs.map((tab) => (
